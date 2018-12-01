@@ -4,15 +4,27 @@ Introduction to python
 
 ## Contents
 
-* Python local setup
+### * Python local setup
+
 base on https://github.com/marcosmamg/intro_to_sprinting
 
-* Introduction to python
+by: [marcosmamg](https://github.com/marcosmamg) [@marcosmamg](https://twitter.com/marcosmamg)
+
+### *  Introduction to python
+
 base on https://github.com/darwing1210/pycon-ds-2018/blob/master/python-tutorial.ipynb
 
-* Contributing to open source projects
-https://help.github.com/articles/fork-a-repo/
-https://help.github.com/articles/syncing-a-fork/
+by: [darwing1210](https://github.com/darwing1210) [@Darwing1210](https://twitter.com/Darwing1210)
 
-* Excercises
-base on https://developers.google.com/edu/python/introduction?authuser=1
+
+### *  Contributing to open source projects
+
+by: [lumega](https://github.com/lumega) [@lcmejia19](https://twitter.com/lcmejia19)
+
+base on https://help.github.com/articles/fork-a-repo/
+
+base on https://help.github.com/articles/syncing-a-fork/
+
+### *  Excercises
+
+base on https://github.com/lumega/pythonNicaragua/tree/master/meetup-20181130/excercises
