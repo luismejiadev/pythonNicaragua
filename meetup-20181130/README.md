@@ -12,7 +12,7 @@ by: [marcosmamg](https://github.com/marcosmamg) [@marcosmamg](https://twitter.co
 
 ### *  Introduction to python
 
-base on https://github.com/darwing1210/pycon-ds-2018/blob/master/python-tutorial.ipynb
+base on https://github.com/darwing1210/introduccion-a-python
 
 by: [darwing1210](https://github.com/darwing1210) [@Darwing1210](https://twitter.com/Darwing1210)
 
