@@ -3,3 +3,5 @@
 *.xls*
 *.pyc
 *cache*
+*env*
+*__pycache__*
