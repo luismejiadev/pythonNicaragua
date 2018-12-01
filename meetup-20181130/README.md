@@ -25,6 +25,8 @@ base on https://help.github.com/articles/fork-a-repo/
 
 base on https://help.github.com/articles/syncing-a-fork/
 
+**issue example** https://github.com/audreyr/cookiecutter/issues/1062
+
 ### *  Excercises
 
 base on https://github.com/lumega/pythonNicaragua/tree/master/meetup-20181130/excercises
