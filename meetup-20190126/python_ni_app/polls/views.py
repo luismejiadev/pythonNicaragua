@@ -5,6 +5,7 @@ from django.views import generic
 from django.utils import timezone
 
 from .models import Choice, Question
+from .tasks import increment_vote, increment_counter
 
 class IndexView(generic.ListView):
     template_name = 'polls/index.html'
@@ -38,9 +39,6 @@ def vote(request, question_id):
             'error_message': "You didn't select a choice.",
         })
     else:
-        selected_choice.votes += 1
-        selected_choice.save()
-        # Always return an HttpResponseRedirect after successfully dealing
-        # with POST data. This prevents data from being posted twice if a
-        # user hits the Back button.
+        increment_vote.delay(request.POST['choice'])
+        increment_counter.delay(request.POST['choice'])
         return HttpResponseRedirect(reverse('polls:results', args=(question.id,)))

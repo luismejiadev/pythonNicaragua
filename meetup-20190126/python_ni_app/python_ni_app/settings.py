@@ -135,7 +135,7 @@ STATIC_URL = '/static/'
 
 REDIS_PORT = os.environ.get('REDIS_PORT', '6379')
 REDIS_HOST = os.environ.get('REDIS_HOST', '127.0.0.1')
-
+REDIS_DB = 0
 
 # CACHES = {
 #     'default': {
@@ -144,7 +144,7 @@ REDIS_HOST = os.environ.get('REDIS_HOST', '127.0.0.1')
 #     }
 # }
 
-BROKER_URL = "amqp://{user}:{password}@{host}:{port}/{vhost}".format(
+CELERY_BROKER_URL = "amqp://{user}:{password}@{host}:{port}/{vhost}".format(
     user=os.environ.get('BROKER_USER', ''),
     password=os.environ.get('BROKER_PASS', ''),
     host=os.environ.get('BROKER_HOST', ''),
@@ -152,20 +152,13 @@ BROKER_URL = "amqp://{user}:{password}@{host}:{port}/{vhost}".format(
     vhost=os.environ.get('BROKER_VHOST', '')
 )
 
-#celeryd
-CELERYD_HIJACK_ROOT_LOGGER = False
-CELERY_REDIRECT_STDOUTS = False
-#CELERYD_LOG_FILE = os.path.join(SITE_ROOT,'logs','celeryd.log')
-CELERYD_MAX_TASKS_PER_CHILD = 1000
-
 #general celery
 CELERY_RESULT_BACKEND = "redis"
 CELERY_TASK_RESULT_EXPIRES = 60 * 60 * 24 * 7
 CELERY_IMPORTS = (
     'polls.tasks',
 )
-CELERY_SEND_TASK_ERROR_EMAILS = True
-CELERY_IGNORE_RESULT = True
+
 
 from polls.celery_routers import PollRouter
 CELERY_ROUTES = (
@@ -178,12 +171,12 @@ CELERY_REDIS_PORT = 6379
 
 
 #celerybeat
-CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
+# CELERYBEAT_SCHEDULER = 'djcelery.schedulers.DatabaseScheduler'
 
-try:
-    import djcelery
-    djcelery.setup_loader()
-except Exception as e:
-    print("no djcelery")
-    print(e)
-    pass
+# try:
+#     import djcelery
+#     djcelery.setup_loader()
+# except Exception as e:
+#     print("no djcelery")
+#     print(e)
+#     pass

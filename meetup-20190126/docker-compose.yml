@@ -13,6 +13,7 @@ services:
 
     app-admin:
         build: .
+        image: python_ni
         stdin_open: true
         tty: true
         restart: unless-stopped
@@ -29,6 +30,7 @@ services:
           - "app-rabbitmq:rabbitmq"
         volumes:
           - ./python_ni_app:/var/www/python_ni_app
+          - ./admin/conf.d:/etc/supervisor/conf.d
         command: python manage.py runserver 0.0.0.0:8000
         ports:
           - "8000:8000"
@@ -48,6 +50,8 @@ services:
           - RABBITMQ_DEFAULT_USER=rabbitmq_user
           - RABBITMQ_DEFAULT_PASS=rabbitmq_pass
           - RABBITMQ_DEFAULT_VHOST=python_ni_app
+        volumes:
+          - ./watch-rabbitmq.sh:/var/lib/rabbitmq/watch-rabbitmq.sh
         ports:
           - "5675:5672"
           - "15675:15672"

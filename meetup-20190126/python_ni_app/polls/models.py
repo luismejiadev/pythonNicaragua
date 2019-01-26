@@ -20,3 +20,8 @@ class Choice(models.Model):
     votes = models.IntegerField(default=0)
     def __str__(self):
         return self.choice_text
+
+    @property
+    def counter(self):
+        from .utils import get_redis
+        return int(get_redis().get("Choice%d" % self.id) or 0)
